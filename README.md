@@ -73,6 +73,7 @@ In our model we use one single network with two output for Discriminator model. 
   - Output: Probability that the provided image is real, probability of the image belonging to each known class.
 
 The plot blow summarize input and out of Conditional Gan and AC-GAN input and output and best way to compared the CGAN and AC-GAN context:
+
 ![cgan vs acgan](images/3.png)
 
 ### Discriminator:
@@ -94,6 +95,7 @@ As we mention before generator model is not updated directly; instead, it is upd
 Here we use same loss function and optimizer as our Discriminator model with a little difference. Here for our optimizer, we set learning rate to 0000.5 which again because of better result that we got in this case.
 
 In plot below you can see our Discriminator and Generator Layers all together:
+
 ![discriminator and generator](images/4.jpg)
 
 ### Training Model:
@@ -102,6 +104,7 @@ We use the same condition as previous model here. We train model for 50 epochs w
 The Frechet Inception Distance score, or FID for short, is a metric that calculates the distance between feature vectors calculated for real and generated images. The score summarizes how similar the two groups are in terms of statistics on computer vision features of the raw images calculated using the inception v3 model used for image classification. Lower scores indicate the two groups of images are more similar, or have more similar statistics, with a perfect score being 0.0 indicating that the two groups of images are identical.
 
 For evaluation our model we use InceptionV3. This model estimates quality of generated images based on one of 1000 known object. The FID score is calculated by first loading a pre- trained Inception v3 model. The output layer of the model is removed and the output is taken as the activations from the last pooling layer, a global spatial pooling layer. The FID score is calculated using the following equation taken from the papres:
+
 ![discriminator and generator](images/5.png)
 
 In our project of course because of differences between Generator models and how they generate images we need to have two different evaluation.
@@ -110,5 +113,6 @@ Here we compute FID score with 10000 images chosen randomly from real images fo 
 
 ## Result:
 As result of course each model works well to generate images according to custom labels. But as expected AC_GAN model generates better images than cGAN.
+
 ![cgan_acgan_examples](images/6.png)
 
